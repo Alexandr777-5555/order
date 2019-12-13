@@ -1,0 +1,224 @@
+
+
+
+DROP TABLE IF EXISTS product;
+DROP TABLE IF EXISTS assortment;
+
+
+
+CREATE table assortment(
+	namepr varchar(100),
+	unic int not null,
+    PRiMARY KEY(unic)
+);
+
+
+CREATE table product(
+   product_id integer not null,
+   uniqueNum integer not null,
+   nameProduct varchar(20),
+   price  integer,
+   amount integer,
+   dateMade date ,
+   PRiMARY KEY(product_id) ,
+   FOREIGN KEY (uniqueNum) REFERENCES assortment(unic) ON DELETE RESTRICT
+)
+
+  // вставляем данные в таблицу assortment
+INSERT INTO assortment ( namepr , unic ) VALUES ('moloko' , 1)
+
+  // обновление таблицы
+
+update assortment set  namepr ='siga' where unic=2
+
+  // удаление данных
+
+delete from assortment where unic=4
+
+ // выбираем из таблицы все продукты с таким порядком букв olo
+
+select namepr , unic from assortment where upper(namepr) like upper ('%olo%')
+
+
+
+ //
+
+
+
+
+ТАБЛИЦА ORDER
+
+
+1. создание
+Drop table if exists orderproduct;
+
+ CREATE table orderproduct(
+ 	order_shop int,
+ 	id_order  SERIAL,
+    order_date date not null,
+    order_time timestamp not null,
+    order_status int,
+    order_product int not null,
+    product_count int,
+    FOREIGN KEY (order_product) REFERENCES assortment(unic) ON DELETE RESTRICT,
+    FOREIGN KEY (order_shop) REFERENCES shop(id_shop) ON DELETE RESTRICT,
+
+    PRiMARY KEY(id_order)
+ );
+
+1.1 изменил запрос в базу ( убрал ключ в assortment)
+
+Drop table if exists orderproduct;
+
+ CREATE table orderproduct(
+    id_order  SERIAL,
+ 	order_shop int,
+    order_date date not null,
+    order_time timestamp not null,
+    order_status int,
+    order_product int not null,
+    product_count int,
+    FOREIGN KEY (order_product) REFERENCES assortment(unic) ON DELETE RESTRICT,
+    FOREIGN KEY (order_shop) REFERENCES shop(id_shop) ON DELETE RESTRICT,
+
+    PRiMARY KEY(id_order)
+ );
+
+  2 . добавляем данные в таблицу orderproduct
+  INSERT INTO orderproduct(id_order , order_shop , order_date ,order_time ,
+                           order_status , order_product ,   product_count )
+  VALUES
+
+
+
+
+
+
+ CREATE table orderproduct(
+    id_order  SERIAL,
+ 	order_shop int,
+    order_date date not null,
+    order_time timestamp not null,
+    order_status int,
+    order_product int not null,
+    product_count int,
+    FOREIGN KEY (order_product) REFERENCES assortment(unic) ON DELETE RESTRICT,
+    FOREIGN KEY (order_shop) REFERENCES shop(id_shop) ON DELETE RESTRICT,
+
+    PRiMARY KEY(id_order)
+ );
+
+
+
+ ТАБЛИЦА SHOP
+ 1. создание
+ CREATE table shop(
+ 	name_shop varchar(100),
+ 	id_shop int not null,
+     PRiMARY KEY(id_shop)
+
+ );
+
+ 2 . добавляем данные в таблицу shop
+
+INSERT INTO shop ( id_shop , name_shop ) VALUES
+( 1 , 'магнит'),
+( 2 , 'ашан'),
+( 3 , 'мария ра'),
+( 4 , 'пяторочка'),
+( 5 , 'питер'),
+( 6 , 'у дома'),
+( 7 , 'заправка');
+
+ +++++++++++++++++++++++++++++++++++++++++++++++++++
+
+ INSERT INTO product (product_num, order_id , id_product) VALUES
+
+  (1 , 1 , 1) ,
+  (2 , 1 , 2),
+  (3,  1,   3);
+
+
+
+ удаляем таблицы
+  // создаем таблицу ассортимент
+ // создаем таблицу заказов
+
+
+ DROP TABLE IF EXISTS product;
+ Drop table if exists orderproduct;
+ drop table if exists assortment;
+
+
+CREATE table assortment(
+	namepr varchar(100),
+	unic int not null,
+    PRiMARY KEY(unic)
+);
+
+
+CREATE table product(
+	product_num Serial,
+	order_id  int,
+	id_product int not null,
+    PRiMARY KEY(id_product)
+);
+
+
+// создание таблицы продукт без уникального ключа
+delete from product ,
+DROP TABLE IF EXISTS product;
+
+CREATE table product(
+	product_num Serial,
+	order_id  int,
+	id_product int not null
+);
+
+
+
+INSERT INTO public.product(
+	product_num, order_id, id_product)
+	VALUES (?, ?, ?);
+
+
+ CREATE table orderproduct(
+    id_order  SERIAL,
+ 	order_shop int,
+    order_date date not null,
+    order_time timestamp not null,
+    order_status int,
+    order_product int ,
+    product_count int,
+    FOREIGN KEY (order_shop) REFERENCES shop(id_shop) ON DELETE RESTRICT,
+
+    PRiMARY KEY(id_order)
+ );
+
+ // вставка данных в таблицу assortment
+
+ INSERT INTO assortment ( namepr , unic )
+ VALUES
+  ('moloko' , 1),
+  ('мороженное' , 2),
+  ('кефир' , 3),
+  ('печенье' , 4),
+  ('хлеб' , 5),
+  ('сушки' , 6),
+  ('лимонад' , 7)
+
+// выбрать все колоноки из orderproduct , присоединить таблицу product и выбрать из нее id_product тех продуктов у
+ // которых id заказа совпадает со статусом 0 и остортированные по дате
+
+SELECT ord.*,pro.id_product  FROM orderproduct ord
+INNER JOIN product pro ON  ord.id_order=pro.order_id
+WHERE order_status=0 ORDER BY order_date
+
+// выберем все ORDER c номером 42
+SELECT prod.* , ord.* FROM  product prod
+INNER JOIN orderproduct ord ON ord.id_order = prod.order_id
+WHERE id_order IN (42)
+ORDER BY id_order
+
+// создание index  для поля order_status таблицы orderproduct
+CREATE INDEX idx_order_status ON orderproduct(order_status)

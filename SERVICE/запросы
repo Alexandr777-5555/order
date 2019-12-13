@@ -1,0 +1,29 @@
+SELECT * FROM  stock st
+INNER JOIN price_and_title_product patp on patp.product_id=st.product_id
+WHERE
+st.product_id=1 and st.product_count>=75
+
+
+SELECT * FROM  stock st
+INNER JOIN price_and_title_product patp on patp.product_id=st.product_id
+WHERE
+st.product_id='1' and st.product_count>'76' and UPPER (st.title) = UPPER ('молоко')
+
+
+SELECT * FROM  stock st
+INNER JOIN price_and_title_product patp on patp.product_id=st.product_id
+WHERE
+st.product_id='1' and st.product_count>='77' and UPPER (st.title) = UPPER ('молоко')
+
+
+ SELECT * FROM  stock st
+		   WHERE
+         st.product_id=1 and st.product_count>=77
+
+
+//  4 условие  когда нужно строку приводить к одному виду все заглавные иначе не выберется если будет слово не с заглавной
+
+SELECT * FROM  stock st
+INNER JOIN price_and_title_product patp on patp.product_id=st.product_id
+WHERE
+st.product_id='1' and st.product_count>'76' and UPPER (st.title) = UPPER ('Молоко')
