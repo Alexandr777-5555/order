@@ -23,17 +23,10 @@ public class FindShopAndProductTest {
     private static final Logger LOGGER= LoggerFactory.getLogger(FindShopAndProductTest.class);
     @BeforeClass
     public static void startup() throws Exception {
-
         DBInit.startUp();
         System.out.println("Старт");
 
     }
-
-    // @Before
-    public void before() {
-
-    }
-
 
     @Test
     public void testShopsCountSuccess()  throws DaoException {

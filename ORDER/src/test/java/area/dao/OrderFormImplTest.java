@@ -22,10 +22,8 @@ import java.util.List;
 public class OrderFormImplTest {
 
 
-
     @BeforeClass
     public static void startup() throws Exception {
-
         DBInit.startUpClean();
     }
 
@@ -35,7 +33,6 @@ public class OrderFormImplTest {
     public void testSaveOrderSuccess() throws DaoException {
 
         Shop shop = new Shop(1);
-
         Order order = new Order(2, shop, 10);
 
         Product product1 = new Product(1 , 13 , "");
@@ -74,13 +71,5 @@ public class OrderFormImplTest {
         order.setProductList(productList);
         OrderFormImpl orderForm = new OrderFormImpl();
         orderForm.saveOrder(order);
-
-
-
-
     }
-
-
-
-
 }
