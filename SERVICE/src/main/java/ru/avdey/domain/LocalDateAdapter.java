@@ -10,6 +10,10 @@ import java.time.format.DateTimeFormatter;
 public class LocalDateAdapter extends XmlAdapter<String , LocalDate> {
     @Override
     public LocalDate unmarshal(String v) throws Exception {
+        if(v==null){
+            return LocalDate.parse(v, DateTimeFormatter.ofPattern("03.03.2003"));
+        }
+
         return LocalDate.parse(v, DateTimeFormatter.ofPattern("dd.MM.yyyy"));
     }
 
