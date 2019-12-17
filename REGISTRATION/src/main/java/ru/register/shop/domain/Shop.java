@@ -31,4 +31,13 @@ public class Shop {
     public void setName(String name) {
         this.name = name;
     }
+
+
+    @Override
+    public String toString() {
+        return "Shop{" +
+                "shoppingID=" + shoppingID +
+                ", name='" + name + '\'' +
+                '}';
+    }
 }

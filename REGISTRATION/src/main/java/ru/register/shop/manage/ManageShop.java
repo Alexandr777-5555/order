@@ -9,6 +9,7 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import ru.register.shop.domain.Shop;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class ManageShop {
 
@@ -17,6 +18,13 @@ public class ManageShop {
 
 
         SessionFactory sessionBuild = buildSessionFactory();
+
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println();
+
 
         Session session = sessionBuild.openSession();
 
@@ -34,6 +42,18 @@ public class ManageShop {
 
         session.close();
 
+
+
+        session = sessionBuild.openSession();
+        Shop shopName = session.get(Shop.class, id);
+        System.out.println(shopName.toString());
+        session.close();
+
+
+        session = sessionBuild.openSession();
+        List<Shop> list = session.createQuery("FROM Shop", Shop.class).list();
+        session.close();
+        list.forEach(shop1 -> System.out.println(shop1));
 
     }
 
