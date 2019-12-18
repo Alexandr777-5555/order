@@ -1,20 +1,16 @@
 package ru.register.shop.domain;
 
 
-import javax.persistence.*;
+import java.time.LocalDate;
+import java.util.List;
 
-@Entity  // сущность которую надо сохранять
-@Table(name = "shopping")  //  в какую таблицу сохранять
 public class Shop {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "shopping_id")
     private Long shoppingID;
-
-    @Column(name ="name")
     private String name;
-
+    private LocalDate dateCreate;
+    private List<Address> addressList;
+    private Inn inn;
 
     public Long getShoppingID() {
         return shoppingID;
@@ -32,12 +28,29 @@ public class Shop {
         this.name = name;
     }
 
-
-    @Override
-    public String toString() {
-        return "Shop{" +
-                "shoppingID=" + shoppingID +
-                ", name='" + name + '\'' +
-                '}';
+    public LocalDate getDateCreate() {
+        return dateCreate;
     }
+
+    public void setDateCreate(LocalDate dateCreate) {
+        this.dateCreate = dateCreate;
+    }
+
+    public List<Address> getAddressList() {
+        return addressList;
+    }
+
+    public void setAddressList(List<Address> addressList) {
+        this.addressList = addressList;
+    }
+
+    public Inn getInn() {
+        return inn;
+    }
+
+    public void setInn(Inn inn) {
+        this.inn = inn;
+    }
+
+
 }
