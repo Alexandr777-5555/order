@@ -1,16 +1,31 @@
 package ru.register.shop.domain;
 
 
+import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.List;
 
+@Table(name = "reg_shop")
+@Entity
 public class Shop {
 
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "shop_id")
     private Long shoppingID;
+
+    @Column(name = "shop_name")
     private String name;
+
+    @Column(name = "shop_date_create")
     private LocalDate dateCreate;
+
+    @OneToMany(cascade ={CascadeType.REFRESH} , fetch = FetchType.LAZY , mappedBy = "shop")
     private List<Address> addressList;
-    private Inn inn;
+
+    @Column(name = "shop_inn")
+    private int inn;
 
     public Long getShoppingID() {
         return shoppingID;
@@ -44,11 +59,12 @@ public class Shop {
         this.addressList = addressList;
     }
 
-    public Inn getInn() {
+
+    public int getInn() {
         return inn;
     }
 
-    public void setInn(Inn inn) {
+    public void setInn(int inn) {
         this.inn = inn;
     }
 

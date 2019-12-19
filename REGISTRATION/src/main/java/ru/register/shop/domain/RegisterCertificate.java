@@ -8,7 +8,6 @@ public class RegisterCertificate {
     private String number;
     private LocalDate issueDate;
     private boolean active;   // действительный сертификат
-    
 
 
 
