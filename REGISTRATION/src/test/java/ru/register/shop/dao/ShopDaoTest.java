@@ -1,6 +1,7 @@
 package ru.register.shop.dao;
 
 import org.junit.Test;
+import ru.register.shop.domain.BigShop;
 import ru.register.shop.domain.Shop;
 
 import java.util.List;
@@ -23,6 +24,11 @@ public class ShopDaoTest {
 
             System.out.println("класс"  + shop.getClass().getName());
             System.out.println("адрес" + shop.getAddressList().size());
+
+            if (shop instanceof BigShop){
+
+                System.out.println("Сертификат" + ((BigShop)shop).getCertificates());
+            }
         });
 
 

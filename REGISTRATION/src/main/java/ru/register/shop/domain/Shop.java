@@ -7,8 +7,8 @@ import java.util.List;
 
 @Table(name = "reg_shop")
 @Entity
-@Inheritance (strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name = "uid" , discriminatorType = DiscriminatorType.INTEGER)
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "uid", discriminatorType = DiscriminatorType.INTEGER)
 public class Shop {
 
 
@@ -23,11 +23,15 @@ public class Shop {
     @Column(name = "shop_date_create")
     private LocalDate dateCreate;
 
-    @OneToMany(cascade ={CascadeType.REFRESH} , fetch = FetchType.LAZY , mappedBy = "shop")
+    @OneToMany(cascade = {CascadeType.REFRESH}, fetch = FetchType.LAZY, mappedBy = "shop")
     private List<Address> addressList;
 
     @Column(name = "shop_inn")
     private int inn;
+
+    @OneToOne(cascade = {CascadeType.REFRESH}, fetch = FetchType.LAZY, mappedBy = "shop")
+    private RegisterCertificate certificate;
+
 
     public Long getShoppingID() {
         return shoppingID;
@@ -70,5 +74,11 @@ public class Shop {
         this.inn = inn;
     }
 
+    public RegisterCertificate getCertificate() {
+        return certificate;
+    }
 
+    public void setCertificate(RegisterCertificate certificate) {
+        this.certificate = certificate;
+    }
 }

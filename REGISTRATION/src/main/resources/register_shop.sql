@@ -1,4 +1,5 @@
 DROP TABLE IF EXISTS Address;
+DROP TABLE IF EXISTS reg_certificate;
 DROP TABLE IF EXISTS reg_shop;
 
 
@@ -25,6 +26,19 @@ CREATE TABLE  Address(
  PRIMARY KEY (address_id),
  FOREIGN KEY (shop_id) REFERENCES reg_shop(shop_id) ON DELETE RESTRICT
 
+);
+
+
+
+CREATE TABLE reg_certificate(
+
+certificate_id SERIAL ,
+number varchar (100)  not null ,
+reg_date  date not null ,
+shop_id integer not null ,
+active boolean DEFAULT false ,
+PRIMARY KEY (certificate_id),
+FOREIGN KEY (shop_id) REFERENCES reg_shop(shop_id) ON DELETE RESTRICT
 );
 
 INSERT INTO reg_shop (uid, shop_name, shop_date_create, shop_inn)  values
