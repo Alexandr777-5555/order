@@ -7,6 +7,8 @@ import java.util.List;
 
 @Table(name = "reg_shop")
 @Entity
+@Inheritance (strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "uid" , discriminatorType = DiscriminatorType.INTEGER)
 public class Shop {
 
 
