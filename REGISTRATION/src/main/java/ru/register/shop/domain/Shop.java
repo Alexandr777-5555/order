@@ -9,6 +9,17 @@ import java.util.List;
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "uid", discriminatorType = DiscriminatorType.INTEGER)
+
+
+@NamedQueries({
+       @NamedQuery(name = "Shop.findShops" , query =
+                "SELECT  s FROM Shop s"
+               +" LEFT JOIN  FETCH s.addressList "
+               +" LEFT JOIN  FETCH s.certificate "
+               + "WHERE s.shoppingID = :shoppingid ")
+
+})
+
 public class Shop {
 
 

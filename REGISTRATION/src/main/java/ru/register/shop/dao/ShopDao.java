@@ -5,6 +5,7 @@ import ru.register.shop.domain.Shop;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.Query;
 import java.util.List;
 
 public class ShopDao {
@@ -19,8 +20,10 @@ public class ShopDao {
 
     public List<Shop> findShops() {
 
-        return  entityManager.createQuery("SELECT  s FROM Shop s").getResultList();
+        Query query = entityManager.createNamedQuery("Shop.findShops");
+        query.setParameter("shoppingid" , 2L);
 
+        return  query.getResultList();
     }
 
 
