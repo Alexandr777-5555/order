@@ -21,7 +21,7 @@ public class ShopDao {
     public List<Shop> findShops() {
 
         Query query = entityManager.createNamedQuery("Shop.findShops");
-        query.setParameter("shoppingid" , 2L);
+        //query.setParameter("shoppingid" , 2L);
 
         return  query.getResultList();
     }

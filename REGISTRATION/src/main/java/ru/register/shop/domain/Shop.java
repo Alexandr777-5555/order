@@ -16,7 +16,8 @@ import java.util.List;
                 "SELECT  s FROM Shop s"
                +" LEFT JOIN  FETCH s.addressList "
                +" LEFT JOIN  FETCH s.certificate "
-               + "WHERE s.shoppingID = :shoppingid ")
+           //  + "WHERE s.shoppingID = :shoppingid "
+               )
 
 })
 
