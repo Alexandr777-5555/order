@@ -23,6 +23,8 @@ public class ExistsShopDAO {
 
     private EntityManager entityManager;
 
+    private String test;
+
 
     public ExistsShopDAO() {
         EntityManagerFactory factory = Persistence.createEntityManagerFactory("persistence");
@@ -31,11 +33,17 @@ public class ExistsShopDAO {
 
 
      public RegisterCertificate findCertificate(StoreAddressRequest request){
-
+        LOGGER.info("findCertificate : "   + test);
         //TODO изменю далее
         return null;
-
      }
+
+
+    public void setTest(String test) {
+        this.test = test;
+    }
+
+
 
 
 

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <bean name="dao" class="ru.register.shop.dao.ExistsShopDAO">
+        <property name="test" value="SIMPLE"/>
+    </bean>
+
+
+    <bean name="manager" class="ru.register.shop.business.ExistsManage">
+        <property name="shopDAO" ref="dao"/>
+    </bean>
+
+
+    <bean name="controller" class="ru.register.shop.rest.ShopController">
+        <property name="manage" ref="manager"/>
+    </bean>
+</beans>
