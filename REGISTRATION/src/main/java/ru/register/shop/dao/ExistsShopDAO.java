@@ -26,10 +26,12 @@ public class ExistsShopDAO {
     private String test;
 
 
+    /*
     public ExistsShopDAO() {
         EntityManagerFactory factory = Persistence.createEntityManagerFactory("persistence");
         entityManager = factory.createEntityManager();
-    }
+    }*/
+
 
 
     public RegisterCertificate findCertificate(StoreAddressRequest request) {

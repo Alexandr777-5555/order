@@ -23,7 +23,7 @@ public class ExistsManage {
     @Autowired
      private ExistsShopDAO shopDAO;
 
-   //  @Autowired
+    @Autowired
      private ShopDao dao;
 
     /**
@@ -36,6 +36,10 @@ public class ExistsManage {
     public StoreAddressResponse findRegisterShop(StoreAddressRequest request){
         LOGGER.info("findRegisterShop CALLED");
         RegisterCertificate certificate = shopDAO.findCertificate(request);
+
+
+        dao.findShops();
+
         return new StoreAddressResponse();
     }
 

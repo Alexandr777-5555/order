@@ -57,6 +57,12 @@
             <version>5.1.9.RELEASE</version>
         </dependency>
 
+        <!--         orm-->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-orm</artifactId>
+            <version>5.1.9.RELEASE</version>
+        </dependency>
 
         <!--          логи-->
         <dependency>
@@ -71,6 +77,9 @@
             <artifactId>slf4j-simple</artifactId>
             <version>1.7.28</version>
         </dependency>
+
+
+
 
     </dependencies>
 </project>
