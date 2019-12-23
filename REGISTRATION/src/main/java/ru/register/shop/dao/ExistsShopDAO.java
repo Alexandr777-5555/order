@@ -3,6 +3,7 @@ package ru.register.shop.dao;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import ru.register.shop.domain.RegisterCertificate;
 import ru.register.shop.view.StoreAddressRequest;
@@ -21,6 +22,7 @@ public class ExistsShopDAO {
 
     private EntityManager entityManager;
 
+    @Value("${test.value}")
     private String test;
 
 

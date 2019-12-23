@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.register.shop.dao.ExistsShopDAO;
+import ru.register.shop.dao.ShopDao;
 import ru.register.shop.domain.RegisterCertificate;
 import ru.register.shop.view.StoreAddressRequest;
 import ru.register.shop.view.StoreAddressResponse;
@@ -19,6 +20,8 @@ public class ExistsManage {
     @Autowired
      private ExistsShopDAO shopDAO;
 
+   //  @Autowired
+     private ShopDao dao;
 
     /**
      *
@@ -32,5 +35,8 @@ public class ExistsManage {
         RegisterCertificate certificate = shopDAO.findCertificate(request);
         return new StoreAddressResponse();
     }
+
+
+
 
 }
