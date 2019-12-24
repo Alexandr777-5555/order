@@ -57,7 +57,19 @@ public class ExistsManage {
 
         //shopDAO.findAll();
 
-        shopDAO.findById(1L);
+       //  shopDAO.findById(1L);
+
+
+        List<RegisterCertificate> numbers = shopDAO.findByNumber("AA22RUSABVGD");
+        numbers.forEach(num -> LOGGER.info("сертификат "  + num.getCertificateId()));
+
+
+        List<RegisterCertificate> numberContaining = shopDAO.findByNumberContaining("A2");
+        numberContaining.forEach(num -> LOGGER.info("сертификат подстрока "  + num.getCertificateId()));
+
+
+
+
 
         List<RegisterCertificate> certificates = shopDAO.findAll();
         for (RegisterCertificate registerCertificate:certificates){
