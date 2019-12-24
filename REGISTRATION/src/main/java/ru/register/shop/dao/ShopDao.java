@@ -11,15 +11,19 @@ public class ShopDao {
     private EntityManager entityManager;
 
 
-
     public List<Shop> findShops() {
         Query query = entityManager.createNamedQuery("Shop.findShops");
         //query.setParameter("shoppingid" , 2L);
-        return  query.getResultList();
+        return query.getResultList();
     }
 
 
+    public Long addShop(Shop shop) {
 
+            entityManager.persist(shop);
+            entityManager.flush();
 
+        return shop.getShoppingID();
+    }
 
 }

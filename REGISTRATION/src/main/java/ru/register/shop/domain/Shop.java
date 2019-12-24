@@ -21,7 +21,7 @@ import java.util.List;
 
 })
 
-public class Shop {
+public abstract class Shop {
 
 
     @Id
