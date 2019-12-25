@@ -72,6 +72,10 @@ public class ExistsManage {
         numContaining.forEach(num -> LOGGER.info("способ 2 :"  + num.getCertificateId()));
 
 
+        List<RegisterCertificate> numb = shopDAO.findSome("EKLMN");
+        numb.forEach(num -> LOGGER.info("способ 3 :"  + num.getCertificateId()));
+
+
         List<RegisterCertificate> certificates = shopDAO.findAll();
         for (RegisterCertificate registerCertificate:certificates){
             System.out.println(registerCertificate);
@@ -95,7 +99,7 @@ public class ExistsManage {
     private RegisterCertificate getCertificate(){
 
         RegisterCertificate rc = new RegisterCertificate();
-        rc.setNumber("AA22RUSABVGD");
+        rc.setNumber("EKLMN");
         rc.setIssueDate(LocalDate.now());
         rc.setActive(true);
 
