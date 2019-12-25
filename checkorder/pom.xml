@@ -4,25 +4,13 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>register-store</groupId>
-    <artifactId>register</artifactId>
+    <groupId>ru.avdey.existsorder</groupId>
+    <artifactId>checkorder</artifactId>
     <version>1.0</version>
 
-    <packaging>war</packaging>
 
 
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <source>8</source>
-                    <target>8</target>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
+
 
 
     <dependencies>
@@ -61,14 +49,14 @@
             <artifactId>spring-orm</artifactId>
             <version>5.1.9.RELEASE</version>
         </dependency>
-<!--        data-->
+        <!--        data-->
         <dependency>
             <groupId>org.springframework.data</groupId>
             <artifactId>spring-data-jpa</artifactId>
             <version>2.2.1.RELEASE</version>
         </dependency>
 
-<!--        ContextLoaderListener -->
+        <!--        ContextLoaderListener -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-web</artifactId>
@@ -111,7 +99,7 @@
             <version>2.3.1</version>
         </dependency>
 
-<!--        элемент интеграции jersey-spring-->
+        <!--        элемент интеграции jersey-spring-->
         <dependency>
             <groupId>org.glassfish.jersey.ext</groupId>
             <artifactId>jersey-spring5</artifactId>
@@ -119,4 +107,22 @@
         </dependency>
 
     </dependencies>
+
+
+
+
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>8</source>
+                    <target>8</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
 </project>
