@@ -15,6 +15,8 @@ import java.time.LocalDate;
 
 @Table(name = "reg_certificate")
 @Entity
+@NamedQuery(name = "RegisterCertificate.findByNum",
+        query = "SELECT rc FROM RegisterCertificate rc WHERE rc.number= :number ")
 public class RegisterCertificate {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

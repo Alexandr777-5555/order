@@ -1,6 +1,7 @@
 package ru.register.shop.dao;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import ru.register.shop.domain.RegisterCertificate;
 
@@ -29,6 +30,9 @@ public interface ExistsShopDAO extends JpaRepository<RegisterCertificate , Long>
      */
     List<RegisterCertificate> findByNumberContaining(String number);
 
+
+
+    List<RegisterCertificate> findByNum(@Param("number") String number);
 
 
 }

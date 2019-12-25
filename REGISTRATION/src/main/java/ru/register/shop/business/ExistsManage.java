@@ -68,7 +68,8 @@ public class ExistsManage {
         numberContaining.forEach(num -> LOGGER.info("сертификат подстрока "  + num.getCertificateId()));
 
 
-
+        List<RegisterCertificate> numContaining = shopDAO.findByNum("AA22RUSABVGD");
+        numContaining.forEach(num -> LOGGER.info("способ 2 :"  + num.getCertificateId()));
 
 
         List<RegisterCertificate> certificates = shopDAO.findAll();
