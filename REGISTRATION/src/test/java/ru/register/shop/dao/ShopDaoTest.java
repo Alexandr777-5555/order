@@ -17,19 +17,19 @@ public class ShopDaoTest {
     @Test
     public void testFindShopsSuccess() {
 
-        ShopDao dao = new ShopDao();
-        List<Shop> shops = dao.findShops();
-        shops.forEach(shop -> {
-            System.out.println(shop.getName());
-
-            System.out.println("класс"  + shop.getClass().getName());
-            System.out.println("адрес" + shop.getAddressList().size());
-
-            if (shop instanceof BigShop){
-
-                System.out.println("Сертификат" + ((BigShop)shop).getCertificates());
-            }
-        });
+//        ShopDao dao = new ShopDao();
+//        List<Shop> shops = dao.findShops();
+//        shops.forEach(shop -> {
+//            System.out.println(shop.getName());
+//
+//            System.out.println("класс"  + shop.getClass().getName());
+//            System.out.println("адрес" + shop.getAddressList().size());
+//
+//            if (shop instanceof BigShop){
+//
+//                System.out.println("Сертификат" + ((BigShop)shop).getCertificates());
+//            }
+//        });
 
 
     }

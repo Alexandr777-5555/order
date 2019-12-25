@@ -9,7 +9,13 @@ import ru.register.shop.business.ExistsManage;
 import ru.register.shop.view.StoreAddressRequest;
 import ru.register.shop.view.StoreAddressResponse;
 
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+
 @Service("controller")
+@Path("/sc")
 public class ShopController {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ShopController.class);
@@ -17,12 +23,11 @@ public class ShopController {
     @Qualifier("manageService")
     private ExistsManage manage;
 
-
-    public StoreAddressResponse findCertificateActive(StoreAddressRequest request) {
-
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public StoreAddressResponse findCertificateActive() { //StoreAddressRequest request
         LOGGER.info("findCertificateActive CALLED");
-
-        return manage.findRegisterShop(request);
+        return manage.findRegisterShop(null);
     }
 
 

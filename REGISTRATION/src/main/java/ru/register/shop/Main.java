@@ -14,8 +14,8 @@ public class Main {
 
        );
 
-       ShopController controller = context.getBean("controller", ShopController.class);
-        controller.findCertificateActive(new StoreAddressRequest());
+   //    ShopController controller = context.getBean("controller", ShopController.class);
+    //    controller.findCertificateActive(new StoreAddressRequest());
 
 
 
