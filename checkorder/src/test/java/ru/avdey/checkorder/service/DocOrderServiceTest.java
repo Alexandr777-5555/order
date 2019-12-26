@@ -11,19 +11,20 @@ import org.springframework.test.context.junit4.SpringRunner;
 import static org.junit.Assert.*;
 
 
+/*
 @RunWith(SpringRunner.class)
 @ContextConfiguration(locations = {"classpath:springContext.xml"})
 public class DocOrderServiceTest {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(DocOrderServiceTest.class);
 
-    @Autowired
+   @Autowired
     private DocOrderService docOrderService;
 
-    @Test
+   @Test
     public void  simpleTest(){
 
-        docOrderService.call();
+     //   docOrderService.call();
 
         LOGGER.info("SIMPLE TEST");
 
@@ -31,3 +32,5 @@ public class DocOrderServiceTest {
 
 
 }
+
+ */

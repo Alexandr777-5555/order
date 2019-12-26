@@ -11,14 +11,13 @@ import java.util.List;
 
 public interface OrderRepository extends JpaRepository<DocumentOrder, Long> {
 
-    @Query("SELECT doc FROM DocumentOrder doc" +
-            " WHERE doc.shop = :shop " +
-            "AND doc.dateCreate=:dateCreate" +
-            " AND doc.desc =: desc" )
+    @Query("SELECT doc FROM Document doc" +
+          //  " WHERE doc.shop = :shop " +
+            " WHERE doc.dateCreate= :date " +
+            " AND doc.desc =: description" )
     List<DocumentOrder> findDocumentOrders(
-            @Param("shop") String shop ,
-            @Param("dateCreate") LocalDate dateCreate ,
-            @Param("desc") String desc
+            @Param("date") LocalDate dateCreate ,
+            @Param("description") String desc
             );
 
 }

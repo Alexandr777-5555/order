@@ -26,7 +26,7 @@ public class DocOrderService {
     public List<OrderResponse>  getOrderInfo(OrderRequest request) {
 
         List<DocumentOrder> docOrders = orderRepository
-                .findDocumentOrders(request.getShopName(), request.getDateCreate(), request.getDesc());
+                .findDocumentOrders(request.getDateCreate(), request.getDesc());
         if (docOrders.isEmpty()){
             return Collections.EMPTY_LIST;
         }
@@ -36,7 +36,7 @@ public class DocOrderService {
 
     private OrderResponse getResponse(DocumentOrder doc){
         OrderResponse response =new OrderResponse();
-        response.setShopName(doc.getShop().getName());
+       // response.setShopName(doc.getShop().getName());
         response.setDateCreate(doc.getDateCreate());
         response.setDesc(doc.getDesc());
         return response;
