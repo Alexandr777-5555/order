@@ -15,7 +15,7 @@ public class DocumentOrder {
     @Column(name = "order_id")
     private Long orderID;
 
-    @Column(name = "desc")
+    @Column(name = "description")
     private String desc;
 
     @Column(name = "date")
