@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.avdey.checkorder.dao.OrderRepository;
 import ru.avdey.checkorder.domain.DocumentOrder;
-import ru.avdey.checkorder.domain.Product;
 import ru.avdey.checkorder.view.OrderRequest;
 import ru.avdey.checkorder.view.OrderResponse;
 

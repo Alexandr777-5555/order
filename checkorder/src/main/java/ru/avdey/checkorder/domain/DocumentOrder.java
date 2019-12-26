@@ -21,9 +21,6 @@ public class DocumentOrder {
     @Column(name = "date")
     private LocalDate dateCreate;
 
-    @OneToMany(cascade = {CascadeType.REFRESH}, fetch = FetchType.LAZY, mappedBy = "document")
-    private List<Product> productList;
-
     @ManyToOne(cascade = {CascadeType.REFRESH}, fetch = FetchType.LAZY)
     @JoinColumn(name = "shop_id")
     private Shop shop;
@@ -55,14 +52,6 @@ public class DocumentOrder {
 
     public void setDateCreate(LocalDate dateCreate) {
         this.dateCreate = dateCreate;
-    }
-
-    public List<Product> getProductList() {
-        return productList;
-    }
-
-    public void setProductList(List<Product> productList) {
-        this.productList = productList;
     }
 
     public Shop getShop() {

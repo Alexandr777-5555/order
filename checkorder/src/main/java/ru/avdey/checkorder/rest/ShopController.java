@@ -3,9 +3,9 @@ package ru.avdey.checkorder.rest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import ru.avdey.checkorder.service.DocOrderService;
-import ru.avdey.checkorder.view.OrderRequest;
-import ru.avdey.checkorder.view.OrderResponse;
+import ru.avdey.checkorder.service.ShopService;
+import ru.avdey.checkorder.view.ShopRequest;
+import ru.avdey.checkorder.view.ShopResponse;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;
@@ -15,19 +15,17 @@ import javax.ws.rs.core.MediaType;
 import java.util.List;
 
 @Component
-@Path("/order")
-public class OrderController {
+@Path("/shop")
+public class ShopController {
 
     @Autowired
-    private DocOrderService docService;
+    private ShopService service;
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public List<OrderResponse> getOrderInfo(OrderRequest request)
-    {
-        return docService.getOrderInfo(request);
+    public List<ShopResponse> getShopInfo(ShopRequest request) {
+        return service.getShopInfo(request);
     }
 
 }
-
