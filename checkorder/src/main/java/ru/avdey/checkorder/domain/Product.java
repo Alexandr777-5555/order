@@ -20,7 +20,40 @@ public class Product {
     private int amount;
 
 
+    @ManyToOne(cascade = {CascadeType.REFRESH} , fetch = FetchType.LAZY)
+    @JoinColumn(name = "order_id")
+    private DocumentOrder document;
 
 
+    public Long getProductID() {
+        return productID;
+    }
 
+    public void setProductID(Long productID) {
+        this.productID = productID;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getAmount() {
+        return amount;
+    }
+
+    public void setAmount(int amount) {
+        this.amount = amount;
+    }
+
+    public DocumentOrder getDocument() {
+        return document;
+    }
+
+    public void setDocument(DocumentOrder document) {
+        this.document = document;
+    }
 }
