@@ -17,7 +17,7 @@ import java.util.List;
 import static org.junit.Assert.*;
 
 
-/**
+
 @RunWith(SpringRunner.class)
 @ContextConfiguration(locations = {"classpath:springContext.xml"})
 public class ShopServiceTest {
@@ -40,4 +40,4 @@ public class ShopServiceTest {
     }
 }
 
-*/
+
