@@ -10,9 +10,9 @@ import java.util.List;
 public interface ShopRepository extends JpaRepository<Shop,Long> {
 
 
-    @Query("SELECT s FROM Shop s WHERE s.name = :name " +
-            "and s.address = :address")
-      List<Shop> findShops(
+    @Query("SELECT s FROM Shop s WHERE s.name = :name  " +
+            " AND s.address = :address")
+      List<Shop> findShop(
               @Param("name") String name ,
               @Param("address") String address
       );

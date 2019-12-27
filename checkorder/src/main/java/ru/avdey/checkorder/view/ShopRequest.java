@@ -7,7 +7,6 @@ public class ShopRequest {
     private String  name;
     private String address;
 
-
     public String getName() {
         return name;
     }
