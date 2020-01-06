@@ -2,6 +2,6 @@ package ru.avdey.checkorder.domain;
 
 public enum Discount {
 
-    YES , NO
+    YES , NO , EMPTY
 
 }

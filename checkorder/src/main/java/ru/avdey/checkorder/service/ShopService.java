@@ -7,12 +7,16 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.avdey.checkorder.dao.ShopRepository;
+import ru.avdey.checkorder.domain.Discount;
 import ru.avdey.checkorder.domain.DocumentOrder;
 import ru.avdey.checkorder.domain.Shop;
 import ru.avdey.checkorder.view.ShopRequest;
 import ru.avdey.checkorder.view.ShopResponse;
+import ru.avdey.checkorder.view.adapter.LocalDateAdapter;
 
 import javax.annotation.PostConstruct;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+import java.time.LocalDate;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -21,9 +25,7 @@ import java.util.stream.Collectors;
 public class ShopService {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ShopService.class);
-
-    List<Shop> shopList;
-
+    private List<Shop> shopList;
 
     @Autowired
     private ShopRepository repository;
@@ -33,7 +35,7 @@ public class ShopService {
     private void init() {
         if (shopList == null) {
             System.out.println("use default");
-            shopList=Collections.EMPTY_LIST;
+            shopList = Collections.EMPTY_LIST;
         }
     }
 
@@ -59,6 +61,7 @@ public class ShopService {
         resp.setDiscount(order.getDiscount());
         return resp;
     }
+
 }
 
 
